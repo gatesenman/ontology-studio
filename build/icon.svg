@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141c28"/>
+      <stop offset="1" stop-color="#0b0f16"/>
+    </linearGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#63b3ff"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <rect x="8" y="8" width="496" height="496" rx="90" fill="none" stroke="#2a3a52" stroke-width="4"/>
+  <!-- link edges -->
+  <g stroke="#3f5878" stroke-width="10" stroke-linecap="round">
+    <line x1="256" y1="216" x2="136" y2="356"/>
+    <line x1="256" y1="216" x2="376" y2="356"/>
+    <line x1="256" y1="216" x2="256" y2="96"/>
+    <line x1="136" y1="356" x2="376" y2="356"/>
+  </g>
+  <!-- satellite nodes -->
+  <circle cx="256" cy="96" r="40" fill="#1d2a3d" stroke="#4c9aff" stroke-width="8"/>
+  <circle cx="136" cy="356" r="40" fill="#1d2a3d" stroke="#36b37e" stroke-width="8"/>
+  <circle cx="376" cy="356" r="40" fill="#1d2a3d" stroke="#ffb020" stroke-width="8"/>
+  <!-- central object-type hexagon -->
+  <path d="M256 146 L322 182 L322 250 L256 286 L190 250 L190 182 Z" fill="url(#node)"/>
+  <path d="M256 146 L322 182 L322 250 L256 286 L190 250 L190 182 Z" fill="none" stroke="#9cc9ff" stroke-width="6"/>
+  <!-- property dots inside the hexagon -->
+  <g fill="#0b1220">
+    <circle cx="232" cy="200" r="11"/>
+    <circle cx="280" cy="200" r="11"/>
+    <circle cx="256" cy="240" r="11"/>
+  </g>
+</svg>
