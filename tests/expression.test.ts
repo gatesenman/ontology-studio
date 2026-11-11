@@ -24,6 +24,13 @@ describe('expression engine', () => {
     expect(() => evaluate('missing > 1', {})).toThrow(/unknown identifier/)
   })
 
+  it('rejects identifiers that only exist on the prototype chain', () => {
+    for (const name of ['toString', 'constructor', '__proto__', 'hasOwnProperty']) {
+      expect(() => evaluate(name, { weightKg: 3 })).toThrow(/unknown identifier/)
+    }
+    expect(evaluate('toString == 1', { toString: 1 })).toBe(true)
+  })
+
   it('rejects non-numeric operands to ordering comparisons', () => {
     expect(() => evaluate('a < 3', { a: 'x' })).toThrow(/expected a number/)
   })
