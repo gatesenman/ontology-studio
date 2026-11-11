@@ -4,7 +4,7 @@ Ontology Studio 是一款类 Palantir 的本体语义建模桌面应用（Electr
 
 ## 界面预览
 
-![主界面](../screenshots/ontology-studio-main.jpg)
+![主界面](../screenshots/object-types.png)
 
 ## 核心能力
 
