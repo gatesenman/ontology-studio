@@ -1,7 +1,8 @@
 // Electron main process: window lifecycle plus file persistence IPC.
-const { app, BrowserWindow, ipcMain, dialog } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron')
 const fs = require('node:fs')
 const path = require('node:path')
+const { isAllowedExternalUrl } = require('./security.cjs')
 
 const DEV_URL = process.env.ONTOLOGY_STUDIO_DEV_URL || 'http://localhost:5173'
 const isDev = !app.isPackaged && process.env.ONTOLOGY_STUDIO_PROD !== '1'
@@ -20,13 +21,47 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.cjs'),
       contextIsolation: true,
       nodeIntegration: false,
+      sandbox: true,
+      webSecurity: true,
     },
   })
+  attachNavigationGuards(win)
   if (isDev) {
     win.loadURL(DEV_URL)
   } else {
     win.loadFile(path.join(__dirname, '..', 'dist', 'index.html'))
   }
+}
+
+function isAppNavigation(url) {
+  if (url.startsWith('file:')) return true
+  try {
+    const parsed = new URL(url)
+    if (parsed.protocol === 'http:' && (parsed.hostname === 'localhost' || parsed.hostname === '127.0.0.1') && (parsed.port === '5173' || url.startsWith(DEV_URL))) {
+      return true
+    }
+  } catch {
+    return false
+  }
+  return false
+}
+
+function attachNavigationGuards(win) {
+  win.webContents.setWindowOpenHandler(({ url }) => {
+    if (isAllowedExternalUrl(url)) {
+      setImmediate(() => {
+        void shell.openExternal(url)
+      })
+    }
+    return { action: 'deny' }
+  })
+  win.webContents.on('will-navigate', (event, url) => {
+    if (isAppNavigation(url)) return
+    event.preventDefault()
+    if (isAllowedExternalUrl(url)) {
+      void shell.openExternal(url)
+    }
+  })
 }
 
 app.whenReady().then(() => {

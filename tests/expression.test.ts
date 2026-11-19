@@ -31,6 +31,18 @@ describe('expression engine', () => {
     expect(evaluate('toString == 1', { toString: 1 })).toBe(true)
   })
 
+  it('rejects identifiers inherited through the scope prototype', () => {
+    const scope = Object.create({ inherited: 4 }) as Record<string, unknown>
+    scope.own = 1
+    expect(evaluate('own + 1', scope)).toBe(2)
+    expect(() => evaluate('inherited', scope)).toThrow(/unknown identifier/)
+  })
+
+  it('rejects Object.prototype names such as valueOf unless they are own properties', () => {
+    expect(() => evaluate('valueOf', {})).toThrow(/unknown identifier/)
+    expect(evaluate('valueOf == 0', { valueOf: 0 })).toBe(true)
+  })
+
   it('rejects non-numeric operands to ordering comparisons', () => {
     expect(() => evaluate('a < 3', { a: 'x' })).toThrow(/expected a number/)
   })

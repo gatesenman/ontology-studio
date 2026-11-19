@@ -16,6 +16,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "lint": "eslint .",
     "test": "vitest run",
+    "test:gate": "tsc --noEmit -p tsconfig.app.json && vitest run",
     "dist": "vite build && electron-builder --linux AppImage"
   },
   "dependencies": {
