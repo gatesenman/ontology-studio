@@ -1,6 +1,6 @@
 {
   "name": "ontology-studio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Palantir-style ontology semantic modeling desktop app: object types, properties, link types, action types, value types, metrics, and rules, with built-in ontology testing.",
   "type": "module",
