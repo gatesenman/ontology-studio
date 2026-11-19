@@ -159,14 +159,15 @@ export function App() {
                   </button>
                 </p>
                 {entities.map((e) => (
-                  <div
+                  <button
+                    type="button"
                     key={e.id}
                     className={`item ${e.id === selectedId ? 'selected' : ''}`}
                     onClick={() => setSelectedId(e.id)}
                   >
                     <div>{e.displayName}</div>
                     <div className="api">{e.apiName}</div>
-                  </div>
+                  </button>
                 ))}
                 {entities.length === 0 && <div className="empty">暂无{KIND_LABELS[section]}</div>}
               </div>
