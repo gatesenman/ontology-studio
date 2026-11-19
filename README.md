@@ -4,6 +4,14 @@
 
 English: a Palantir-style ontology semantic modeling desktop app with built-in ontology testing.
 
+## What's new in 0.2.0
+
+Export and re-import an ontology pack (`.json`) and write a test-report from the built-in checks. The bundled shipping logistics sample round-trips and validates offline.
+
+```bash
+pnpm test
+```
+
 ## 截图
 
 对象类型编辑器（物流示例本体）：
