@@ -1,5 +1,7 @@
 # Ontology Studio
 
+[简体中文](README.md) · [English](README.en.md)
+
 类 Palantir 的本体语义建模桌面程序（Electron + React + TypeScript）。用统一的语义层建模业务领域，并内置对本体的一致性校验与测试。
 
 English: a Palantir-style ontology semantic modeling desktop app with built-in ontology testing.
@@ -59,3 +61,12 @@ pnpm run dist        # electron-builder 打包 Linux AppImage
 ## 文档格式
 
 本体持久化为 `formatVersion: 1` 的单一 JSON 文档（见 `src/core/types.ts` 的 `Ontology`）。未知的 formatVersion 会被拒绝加载。
+
+## 贡献
+
+欢迎通过 Issue 和 Pull Request 参与，详见 [CONTRIBUTING.md](CONTRIBUTING.md)。安全问题请按 [SECURITY.md](SECURITY.md) 私下报告。参与时请遵守 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)。
+
+## 许可证
+
+本仓库尚未附带 LICENSE 文件，许可证未指定。
+
