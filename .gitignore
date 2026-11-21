@@ -3,3 +3,16 @@ dist/
 release/
 *.log
 .env
+
+# Additional hygiene
+.DS_Store
+Thumbs.db
+.env.local
+.env.*.local
+target/
+logs/
+.venv/
+__pycache__/
+coverage/
+!.env.example
+!.env.example.*
