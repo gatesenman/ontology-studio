@@ -12,9 +12,19 @@ A Palantir-style ontology semantic modeling desktop app (Electron + React + Type
 - A built-in logistics sample ontology ("Load sample") and a one-click "Clear".
 - JSON import / export. Desktop mode auto-saves to the user data directory; browser mode saves to localStorage.
 
+## Download
+
+Release: [v0.1.0](https://github.com/gatesenman/ontology-studio/releases/tag/v0.1.0)
+
+- Linux x86_64 AppImage: [Ontology-Studio-0.1.0-linux-x86_64.AppImage](https://github.com/gatesenman/ontology-studio/releases/download/v0.1.0/Ontology-Studio-0.1.0-linux-x86_64.AppImage) (217,094,843 bytes, SHA256 `f4f6f9180af67bded2c68450547135ed42e10c19d779b1578cbeb10f63e4a4f2`)
+
+There is **no** published Windows installer or portable build. electron-builder is configured for a Linux AppImage only. This pass did not cross-build a Windows package (disk space). You can run from source with the commands below.
+
 ## Screenshots
 
-> The UI is currently Chinese only. Screenshots are of the real app (built with `pnpm run build`, served by `vite preview`, opened in headless Chromium) with the built-in logistics sample ontology.
+The UI is currently Chinese only. The two screenshots below are of the real app (built with `pnpm run build`, served by `vite preview`, opened in headless Chromium) with the built-in logistics sample ontology. They are not generated artwork.
+
+`docs/screenshots/ontology-studio-main.jpg` shows a Palantir-branded English UI and is **not** used here as a product shot of this app.
 
 Object type editor:
 
@@ -23,8 +33,6 @@ Object type editor:
 Testing & Validation panel (ontology validation, rule tests, metric evaluation, instance type checks):
 
 ![Testing & Validation panel](docs/screenshots/testing.png)
-
-Link types, action types (parameters, modification targets, submission criteria), metrics (aggregation + filter expression), and sample instances:
 
 ## Concepts
 

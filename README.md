@@ -6,7 +6,19 @@
 
 English: a Palantir-style ontology semantic modeling desktop app with built-in ontology testing.
 
+## 下载
+
+发行页：[GitHub Releases v0.1.0](https://github.com/gatesenman/ontology-studio/releases/tag/v0.1.0)
+
+- Linux x86_64 AppImage：[Ontology-Studio-0.1.0-linux-x86_64.AppImage](https://github.com/gatesenman/ontology-studio/releases/download/v0.1.0/Ontology-Studio-0.1.0-linux-x86_64.AppImage)（217,094,843 字节，SHA256 `f4f6f9180af67bded2c68450547135ed42e10c19d779b1578cbeb10f63e4a4f2`）
+
+当前**没有**已发布的 Windows 安装包或便携包。`package.json` 里 electron-builder 只配置了 Linux AppImage。本轮因磁盘空间不足，未在 Linux 上交叉打包 Windows。桌面运行可用下方源码命令。
+
 ## 截图
+
+以下两张是仓库已有的真实产品界面（中文 UI，内置物流示例本体）。English README 说明拍摄方式为：`pnpm run build` 后用 `vite preview`，再在无头 Chromium 中打开。不是生成图。
+
+仓库里另有 `docs/screenshots/ontology-studio-main.jpg`，画面带有 “Palantir Technologies Inc.” 版权与英文 Palantir 风格界面，**不能**当作本产品截图，故不在 README 中引用。
 
 对象类型编辑器（物流示例本体）：
 
@@ -61,6 +73,12 @@ pnpm run dist        # electron-builder 打包 Linux AppImage
 ## 文档格式
 
 本体持久化为 `formatVersion: 1` 的单一 JSON 文档（见 `src/core/types.ts` 的 `Ontology`）。未知的 formatVersion 会被拒绝加载。
+
+## 限制
+
+- 已发布资产仅有 Linux AppImage，未签名；尚未提供 Windows / macOS 安装包。
+- 界面目前主要为中文。
+- 本仓库尚未附带 LICENSE 文件（只陈述现状，不代选许可证）。
 
 ## 贡献
 
